@@ -1,0 +1,88 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="10">
+            <item index="0" class="java.lang.String" itemvalue="advertisement_url" />
+            <item index="1" class="java.lang.String" itemvalue="}}" />
+            <item index="2" class="java.lang.String" itemvalue="language.code" />
+            <item index="3" class="java.lang.String" itemvalue="language_code" />
+            <item index="4" class="java.lang.String" itemvalue="selected{%" />
+            <item index="5" class="java.lang.String" itemvalue="%}" />
+            <item index="6" class="java.lang.String" itemvalue="{%" />
+            <item index="7" class="java.lang.String" itemvalue="endif" />
+            <item index="8" class="java.lang.String" itemvalue="trans" />
+            <item index="9" class="java.lang.String" itemvalue="value" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="9">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="a" />
+            <item index="7" class="java.lang.String" itemvalue="img" />
+            <item index="8" class="java.lang.String" itemvalue="input" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyChainedComparisonsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoreConstantInTheMiddle" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="Django" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+          <option value="N801" />
+          <option value="N803" />
+          <option value="N806" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="int.__getitem__" />
+          <option value="int.__setitem__" />
+          <option value="tuple.student_info" />
+          <option value="str.answer" />
+          <option value="dict.get_key" />
+          <option value="int.__iter__" />
+          <option value="range.__setitem__" />
+          <option value="range.insert" />
+          <option value="time.struct_time.__sub__" />
+          <option value="telebot.types.KeyboardButton" />
+          <option value="telebot.types.ReplyKeyboardMarkup" />
+          <option value="telebot.types.InlineKeyboardMarkup" />
+          <option value="telebot.types.InlineKeyboardButton" />
+          <option value="message" />
+          <option value="datetime.now.strftime" />
+          <option value="random.random.randint" />
+          <option value="random.random.choice" />
+          <option value="queryset" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous">
+    <title>
+        МОЙ ПОРТ
+    </title>
+</head>
+<body>
+{% if request.user.is_authenticated %}
+   <h3>Главная страница "МОЙ ПОРТ"</h3>
+   <h4>Тут показаны все посты в период с {{ date_start }} по {{ end_time }}</h4>
+   <h4>Общее количество постов: {{ count_post }}</h4>
+    <nav class="navbar navbar-expand-lg navbar-light" style="">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-3">
+                <li class="nav-item">
+                  <pre> <a class="btn btn-primary" aria-current="page" href="#">Общее кол-во комментариев: {{ count_comments }}</a></pre>
+                </li>
+                <li class="nav-item">
+                  <pre> <a class="btn btn-primary" aria-current="page" href="#">Общее кол-во лайков: {{ count_likes }}</a></pre>
+                </li>
+                <li class="nav-item">
+                  <pre> <a class="btn btn-primary" aria-current="page" href="#">Общее кол-во репостов: {{ count_reposts }}</a></pre>
+                </li>
+                <li class="nav-item">
+                  <pre> <a class="btn btn-primary" aria-current="page" href="#">Общее кол-во просмотров: {{ count_views }}</a></pre>
+                </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light" style="">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-3">
+                <li class="nav-item">
+                  <pre> <a class="btn btn-primary">Максимальное кол-во<br>комментариев в посте:
+                      <br>"{{ max_comments.text|truncatewords:4 }}"
+                      <br>Кол-во комментариев: {{ max_comments.comments }}
+                      <br>Дата: {{ max_comments.date }}</a></pre>
+                </li>
+                <li class="nav-item">
+                  <pre> <a class="btn btn-primary">Максимальное кол-во<br>лайков в посте:
+                      <br>"{{ max_likes.text|truncatewords:4 }}"
+                      <br>Кол-во лайков: {{ max_likes.likes }}
+                      <br>Дата: {{ max_likes.date }}</a></pre>
+                </li>
+                <li class="nav-item">
+                  <pre> <a class="btn btn-primary">Максимальное кол-во<br>репостов в посте:
+                      <br>"{{ max_reposts.text|truncatewords:4 }}"
+                      <br>Кол-во репостов: {{ max_reposts.reposts }}
+                      <br>Дата: {{ max_reposts.date }}</a></pre>
+                </li>
+                <li class="nav-item">
+                  <pre> <a class="btn btn-primary">Максимальное кол-во<br>просмотров в посте:
+                      <br>"{{ max_views.text|truncatewords:4 }}"
+                      <br>Кол-во просмотров: {{ max_views.views }}
+                      <br>Дата: {{ max_views.date }}</a></pre>
+                </li>
+                <li class="nav-item">
+                    {% load bootstrap4 %}
+                    {% bootstrap_css %}
+                    {% bootstrap_javascript jquery='full' %}
+                    {{ form.media }}
+
+                    <form action="{% url 'home' %}" method="post">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        <input type="submit" value="Выбрать">
+                    </form>
+                </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+            {% for i in info %}
+              <div class="col">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <p>Дата поста: {{ i.date }}</p>
+                    </div>
+                    <div class="card-body">
+                        <p>{{ i.text|truncatewords:30 }}</p>
+                        <p>{{ i.desc|truncatewords:30 }}</p>
+                        <hr>
+                        <p>Количество комментариев: {{ i.comments }}</p>
+                        <p>Количество лайков: {{ i.likes }}</p>
+                        <p>Количество репостов: {{ i.reposts }}</p>
+                        <p>Количество просмотров: {{ i.views }}</p>
+                    </div>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+{% endif %}
+</body>
+</html>
